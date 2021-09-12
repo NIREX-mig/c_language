@@ -1,0 +1,99 @@
+/*parpose:- Guess the game 
+
+author:- NIreX
+
+date:- 30/04/21
+
+*/
+
+#include<stdio.h>
+
+#include<string.h>
+
+#include<stdlib.h>
+
+#include<time.h>
+
+int main()
+
+{
+
+    int n;
+
+    char name[15];
+
+    printf("*****Welcome to guss the number*****\n");
+
+    printf("\nNote:- You have only 10 chance.this game made by NIreX .\n");
+
+    printf("\nEnter your name:-");
+
+    gets(name);
+
+    
+
+    srand(time(NULL));
+
+    int var=rand()%100;
+
+    
+
+    for(int i=0; i<10; i++)
+
+    {
+
+        int chance=10-i-1;
+
+        printf("\nEnter a number in 1 to 100\n");
+
+        scanf("%d",&n);
+
+        if(n<var)
+
+        {
+
+            printf("\nEnter greatest number. you have %d chance left\n" ,chance);
+
+            continue;
+
+        }
+
+        else if(n>var)
+
+        {
+
+            printf("\nEnter lowest number.you have %d chance left\n" ,chance);
+
+            getchar();
+
+            continue;
+
+        }
+
+        else if(n==var)
+
+        {
+
+            printf("\n%s you gusse correct number.you gusse the number in %d chance\n",name,10-(chance));
+
+            getchar();
+
+            break;
+
+        }
+
+        else
+
+        {
+
+            printf("\nYou Lose The Game\n ");
+
+        }
+
+    }
+
+    printf("\nThe number is:- %d ",var);
+
+    return 0;
+
+}
