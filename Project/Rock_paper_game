@@ -1,0 +1,181 @@
+/*parpose:- rock , paper & sisseor game
+
+author:- NIreX
+
+date:- 30/04/21
+
+*/
+
+#include<stdio.h>
+
+#include<stdlib.h>
+
+#include<time.h>
+
+int compturn(int n)
+
+{
+
+    srand(time(NULL));
+
+    return rand() % n;
+
+}
+
+int greater(char char1,char char2)
+
+{
+
+    if (char1 == char2)
+
+    {
+
+        return -1;
+
+    }
+
+    if((char1 == 'r') && (char2 == 's'))
+
+    {
+
+        return 1;
+
+    }
+
+    else if((char2 == 'r') && (char1 == 's'))
+
+    {
+
+        return 0;
+
+    }
+
+    if((char1 == 'p') && (char2 == 'r'))
+
+    {
+
+        return 1;
+
+    }
+
+    else if((char2 == 'p') && (char1 == 'r'))
+
+    {
+
+        return 0;
+
+    }
+
+    if((char1 == 's') && (char2 == 'p'))
+
+    {
+
+        return 1;
+
+    }
+
+    else if((char2 == 's') && (char1 == 'p'))
+
+    {
+
+        return 0;
+
+    }
+
+}
+
+int main()
+
+{
+
+    int ppoint=0,cpoint=0,temp;
+
+    char playerchar,compchar;
+
+    char *ptr[]= {'r','p','s'};
+
+    printf("*****Welcome to rock , paper & scissor*****\n");
+
+    printf("\nNote:- You have only 5 chance.this game made by NIreX .\n");
+
+printf("\nchose 1 for rock , 2 for paper , 3 for scissor\n");
+
+    for(int i=0; i<3; i++)
+
+    {
+
+        // take players input
+
+        printf("\nplayer 1's turn:- ");
+
+        scanf("%d",&temp);
+
+        getchar();
+
+        playerchar=ptr[temp-1];
+
+        // genrate computer turns
+
+        printf("\ncomputer's turn:- ");
+
+        temp = compturn(3) + 1;
+
+        compchar=ptr[temp-1];
+
+        printf("\nyou chose :- %d\n",playerchar);
+
+        printf("computer chose :- %d\n",compchar);
+
+        //compair the score
+
+        if(greater(compchar,playerchar)==1) {
+
+            cpoint +=1;
+
+        }
+
+        else if(greater(compchar,playerchar)== -1) {
+
+            cpoint +=1;
+
+            ppoint += 1;
+
+        }
+
+        else {
+
+            ppoint +=1;
+
+        }
+
+    }
+
+    if(ppoint<cpoint)
+
+    {
+
+        printf("computer win the game\n");
+
+    }
+
+    else if(ppoint>cpoint)
+
+    {
+
+        printf("player win the game\n");
+
+    }
+
+    else if(ppoint==cpoint)
+
+    {
+
+        printf("drow the game\n");
+
+    }
+
+    // printf("the selection of com %d",comturm(3));
+
+    return 0;
+
+}
